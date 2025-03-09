@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perspektif Düzenleme Uygulaması</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h1 data-i18n="title">Perspektif Düzenleme</h1>
+            
+            <div class="tool-section">
+                <h2 data-i18n="image">Resim</h2>
+                <input type="file" id="imageUpload" accept="image/*">
+                <div class="property">
+                    <label for="exportFormat" data-i18n="exportFormat">İndirme Formatı:</label>
+                    <select id="exportFormat">
+                        <option value="image/png">PNG</option>
+                        <option value="image/jpeg">JPG</option>
+                    </select>
+                </div>
+                <button id="downloadBtn" disabled data-i18n="download">İndir</button>
+            </div>
+            
+            <div class="tool-section">
+                <h2 data-i18n="tools">Araçlar</h2>
+                <button id="rectTool" class="tool-btn" data-i18n="drawRect">Dikdörtgen Çiz</button>
+                <button id="selectTool" class="tool-btn" data-i18n="select">Seç</button>
+                <button id="fillTool" class="tool-btn" data-i18n="fill">Doldur</button>
+            </div>
+            
+            <div class="tool-section">
+                <h2 data-i18n="properties">Özellikler</h2>
+                <div class="property">
+                    <label for="strokeColor" data-i18n="strokeColor">Kenar Rengi:</label>
+                    <input type="color" id="strokeColor" value="#ff0000">
+                </div>
+                <div class="property">
+                    <label for="fillColor" data-i18n="fillColor">Dolgu Rengi:</label>
+                    <input type="color" id="fillColor" value="#0000ff">
+                </div>
+                <div class="property">
+                    <label for="strokeStyle" data-i18n="strokeStyle">Kenar Stili:</label>
+                    <select id="strokeStyle">
+                        <option value="solid" data-i18n="solid">Düz</option>
+                        <option value="dashed" data-i18n="dashed">Kesikli</option>
+                    </select>
+                </div>
+                <div class="property">
+                    <label for="opacity" data-i18n="opacity">Opaklık:</label>
+                    <input type="range" id="opacity" min="0" max="1" step="0.1" value="0.5">
+                    <span id="opacityValue">0.5</span>
+                </div>
+                <div class="property">
+                    <label for="strokeWidth" data-i18n="strokeWidth">Kenar Kalınlığı:</label>
+                    <input type="range" id="strokeWidth" min="1" max="10" step="1" value="2">
+                    <span id="strokeWidthValue">2</span>
+                </div>
+            </div>
+            
+            <div class="tool-section">
+                <h2 data-i18n="layers">Katmanlar</h2>
+                <div id="layers"></div>
+            </div>
+            
+            <div class="tool-section">
+                <div class="language-selector">
+                    <button id="langEn" class="lang-btn">English</button>
+                    <button id="langTr" class="lang-btn active">Türkçe</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="canvas-container">
+            <div class="canvas-tools">
+                <button id="zoomIn">+</button>
+                <button id="zoomOut">-</button>
+                <button id="resetZoom" data-i18n="reset">Sıfırla</button>
+            </div>
+            <div id="canvasWrapper">
+                <canvas id="imageCanvas"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
